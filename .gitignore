@@ -22,3 +22,33 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Media & Presentation Artifacts
+*.mp4
+*.wav
+audio_narration.wav
+Prospect_Assistant_Video_Presentation.mp4
+
+# Session & temporary test dumps
+whatsapp_session/
+whatsapp-auto-send-extension/
+collected_leads.json
+maps_search_dump.html
+gmaps_dump.html
+test_dump*.html
+
+# Scratch & temporary diagnostic scripts
+test_*.cjs
+test_*.js
+test_*.mjs
+!run_full_qa_audit.mjs
+crawler_test.cjs
+diagnose*.cjs
+collect_food_leads.cjs
+lead_evaluator.cjs
+parse_state.cjs
+inspect_*.cjs
+scrape_maps_service.cjs
+record_full_presentation.mjs
+generate_audio.ps1
+whatsapp-automator.js
