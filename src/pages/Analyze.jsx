@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Search, MapPin, Phone, Globe, Star, CheckCircle2, ChevronRight, Copy, MessageSquare, Save, ExternalLink, AlertCircle, ShieldCheck, Camera, RefreshCw } from 'lucide-react';
-import { analyzeBusiness, generateAudit, generatePitch, saveProspect, analyzePhoneNumber, getWhatsAppAppUrl, getWhatsAppUrl, sendDirectWhatsApp } from '../services/api';
+import { analyzeBusiness, generateAudit, generatePitch, saveProspect, analyzePhoneNumber, extractValidPhone, getWhatsAppAppUrl, getWhatsAppUrl, sendDirectWhatsApp } from '../services/api';
 
 const InstagramIcon = ({ size = 12 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -59,6 +59,11 @@ const Analyze = () => {
       setSelectedPhoto(bData.imageUrl || null);
       if (bData.phone) {
         setTargetPhone(bData.phone);
+      } else {
+        const inline = extractValidPhone(url);
+        if (inline) {
+          setTargetPhone(inline);
+        }
       }
       
       const aData = await generateAudit(bData);
